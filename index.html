@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevArchitect | MVC/MVVM Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#5D5CDE',
+                            dark: '#4A49B5',
+                            light: '#7A79E6'
+                        },
+                        secondary: {
+                            DEFAULT: '#38BDF8',
+                            dark: '#0284C7',
+                            light: '#7DD3FC'
+                        },
+                        background: {
+                            light: '#FFFFFF',
+                            dark: '#181818'
+                        }
+                    },
+                    fontFamily: {
+                        'code': ['Consolas', 'Monaco', 'Courier New', 'monospace']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-in-out',
+                        'slide-right': 'slideRight 0.5s ease-in-out',
+                        'slide-left': 'slideLeft 0.5s ease-in-out',
+                        'bounce-slow': 'bounce 3s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideRight: {
+                            '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideLeft: {
+                            '0%': { transform: 'translateX(20px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .font-code {
+            font-family: 'Fira Code', monospace;
+        }
+        
+        /* Pattern Background */
+        .pattern-bg {
+            background-color: #ffffff;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%235d5cde' fill-opacity='0.05'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 20v-1.41l2.83-2.83 1.41 1.41L1.41 20H0zm20 0v-1.41l2.83-2.83 1.41 1.41L21.41 20H20zM0 0v1.41l2.83 2.83-1.41 1.41L0 4.24V0zm10 0v1.41l2.83 2.83-1.41 1.41L10 4.24V0zm20 0v1.41l2.83 2.83-1.41 1.41L30 4.24V0zm-10 10v1.41l2.83 2.83-1.41 1.41L20 14.24V10zm-10 0v1.41l2.83 2.83-1.41 1.41L0 14.24V10zm30 0v1.41l2.83 2.83-1.41 1.41L30 14.24V10zm-10 10v1.41l2.83 2.83-1.41 1.41L20 24.24V20zm-10 0v1.41l2.83 2.83-1.41 1.41L0 24.24V20zm30 0v1.41l2.83 2.83-1.41 1.41L30 24.24V20zm-10 10v1.41l2.83 2.83-1.41 1.41L20 34.24V30zm-10 0v1.41l2.83 2.83-1.41 1.41L0 34.24V30zm30 0v1.41l2.83 2.83-1.41 1.41L30 34.24V30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .dark .pattern-bg {
+            background-color: #181818;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%237a79e6' fill-opacity='0.05'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 20v-1.41l2.83-2.83 1.41 1.41L1.41 20H0zm20 0v-1.41l2.83-2.83 1.41 1.41L21.41 20H20zM0 0v1.41l2.83 2.83-1.41 1.41L0 4.24V0zm10 0v1.41l2.83 2.83-1.41 1.41L10 4.24V0zm20 0v1.41l2.83 2.83-1.41 1.41L30 4.24V0zm-10 10v1.41l2.83 2.83-1.41 1.41L20 14.24V10zm-10 0v1.41l2.83 2.83-1.41 1.41L0 14.24V10zm30 0v1.41l2.83 2.83-1.41 1.41L30 14.24V10zm-10 10v1.41l2.83 2.83-1.41 1.41L20 24.24V20zm-10 0v1.41l2.83 2.83-1.41 1.41L0 24.24V20zm30 0v1.41l2.83 2.83-1.41 1.41L30 24.24V20zm-10 10v1.41l2.83 2.83-1.41 1.41L20 34.24V30zm-10 0v1.41l2.83 2.83-1.41 1.41L0 34.24V30zm30 0v1.41l2.83 2.83-1.41 1.41L30 34.24V30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        /* Architecture Diagrams */
+        .architecture-diagram {
+            transition: all 0.3s ease;
+        }
+        
+        .architecture-diagram:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Project Card */
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .dark .project-card:hover {
+            box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.05), 0 10px 10px -5px rgba(255, 255, 255, 0.02);
+        }
+        
+        /* Tech Badge */
+        .tech-badge {
+            transition: all 0.2s ease;
+        }
+        
+        .tech-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Animated Sections */
+        .section-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .section-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Code Block */
+        .code-block {
+            background-color: #282c34;
+            color: #abb2bf;
+            overflow-x: auto;
+            border-radius: 0.5rem;
+        }
+        
+        .code-keyword {
+            color: #c678dd;
+        }
+        
+        .code-string {
+            color: #98c379;
+        }
+        
+        .code-comment {
+            color: #7f848e;
+            font-style: italic;
+        }
+        
+        .code-function {
+            color: #61afef;
+        }
+        
+        .code-class {
+            color: #e5c07b;
+        }
+        
+        .code-property {
+            color: #e06c75;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark dark:text-white pattern-bg transition-colors duration-300">
+    <!-- Header and Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#" class="flex items-center gap-2">
+                    <div class="h-10 w-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold">
+                        <span class="font-code">{}</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-800 dark:text-white">Dev<span class="text-primary">Architect</span></span>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#about" class="hover:text-primary dark:hover:text-primary-light transition">About</a>
+                    <a href="#skills" class="hover:text-primary dark:hover:text-primary-light transition">Skills</a>
+                    <a href="#architecture" class="hover:text-primary dark:hover:text-primary-light transition">Architecture</a>
+                    <a href="#projects" class="hover:text-primary dark:hover:text-primary-light transition">Projects</a>
+                    <a href="#experience" class="hover:text-primary dark:hover:text-primary-light transition">Experience</a>
+                    <a href="#contact" class="hover:text-primary dark:hover:text-primary-light transition">Contact</a>
+                    
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                </div>
+                
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-900 mt-2 rounded-lg shadow-md">
+                <nav class="flex flex-col space-y-3 p-4">
+                    <a href="#about" class="py-2 hover:text-primary dark:hover:text-primary-light transition">About</a>
+                    <a href="#skills" class="py-2 hover:text-primary dark:hover:text-primary-light transition">Skills</a>
+                    <a href="#architecture" class="py-2 hover:text-primary dark:hover:text-primary-light transition">Architecture</a>
+                    <a href="#projects" class="py-2 hover:text-primary dark:hover:text-primary-light transition">Projects</a>
+                    <a href="#experience" class="py-2 hover:text-primary dark:hover:text-primary-light transition">Experience</a>
+                    <a href="#contact" class="py-2 hover:text-primary dark:hover:text-primary-light transition">Contact</a>
+                    
+                    <div class="pt-2 border-t border-gray-200 dark:border-gray-700">
+                        <button id="mobile-theme-toggle" class="flex items-center gap-2 py-2 w-full text-left hover:text-primary dark:hover:text-primary-light transition">
+                            <i class="fas fa-moon dark:hidden"></i>
+                            <i class="fas fa-sun hidden dark:block"></i>
+                            <span class="dark:hidden">Switch to Dark Mode</span>
+                            <span class="hidden dark:block">Switch to Light Mode</span>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="w-full md:w-1/2 animate-fade-in">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                        <span class="block">Architecture-Driven</span>
+                        <span class="text-primary dark:text-primary-light">Mobile & Web</span>
+                        <span class="block">Developer</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                        Specializing in <span class="text-primary dark:text-primary-light font-semibold">MVC</span> and 
+                        <span class="text-primary dark:text-primary-light font-semibold">MVVM</span> architectural patterns 
+                        to build scalable, maintainable applications.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="px-6 py-3 bg-primary hover:bg-primary-dark text-white rounded-lg transition shadow-lg hover:shadow-xl">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-white dark:border-primary-light dark:text-primary-light dark:hover:bg-primary-light dark:hover:text-gray-900 rounded-lg transition">
+                            Get In Touch
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center gap-6 mt-10">
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition">
+                            <i class="fas fa-envelope text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 flex justify-center mt-10 md:mt-0 animate-slide-up">
+                    <div class="relative">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-lg blur opacity-30 dark:opacity-50"></div>
+                        <div class="relative bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg">
+                            <div class="code-block p-4 font-code text-sm">
+<pre><span class="code-comment">// Developer.swift</span>
+<span class="code-keyword">class</span> <span class="code-class">Developer</span> {
+    <span class="code-property">Sareea</span> = <span class="code-string">"Jamal "</span>
+    <span class="code-property">let role</span> = <span class="code-string">"Mobile & Web Developer"</span>
+    <span class="code-property">let specialties</span> = [<span class="code-string">"MVC"</span>, <span class="code-string">"MVVM"</span>, <span class="code-string">"Clean Architecture"</span>]
+    
+    <span class="code-function">func buildApp</span>() -> <span class="code-class">Solution</span> {
+        <span class="code-keyword">return</span> <span class="code-class">Solution</span>(
+            <span class="code-property">isScalable:</span> <span class="code-keyword">true</span>,
+            <span class="code-property">isMaintainable:</span> <span class="code-keyword">true</span>,
+            <span class="code-property">isUserFriendly:</span> <span class="code-keyword">true</span>
+        )
+    }
+}
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 section-animate">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-2 text-center">About Me</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
+                Architecture-focused developer with a passion for creating elegant, scalable solutions
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-primary dark:text-primary-light">My Approach</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">
+                        I'm a dedicated developer specializing in mobile and web applications with a focus on robust architecture and clean code. 
+                        My expertise in MVC and MVVM patterns allows me to build applications that are not only functional but also maintainable 
+                        and scalable for future growth.
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        With years of experience across various platforms and technologies, I bring a deep understanding of software architecture principles 
+                        to every project. I believe that a well-designed foundation is crucial for creating applications that can evolve with changing requirements.
+                    </p>
+                    
+                    <div class="mt-6">
+                        <h4 class="font-medium text-gray-800 dark:text-gray-200 mb-3">Key Principles:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Clean, modular architecture that separates concerns</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Test-driven development for reliability</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Responsive, accessible user interfaces</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Continuous learning and adaptation to new technologies</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md">
+                        <div class="bg-primary/10 dark:bg-primary-light/10 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-mobile-alt text-2xl text-primary dark:text-primary-light"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Mobile Development</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">
+                            Native and cross-platform app development with a focus on architecture and UX
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md">
+                        <div class="bg-primary/10 dark:bg-primary-light/10 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-laptop-code text-2xl text-primary dark:text-primary-light"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Web Development</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">
+                            Modern web applications built with scalable architecture patterns
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md">
+                        <div class="bg-primary/10 dark:bg-primary-light/10 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-sitemap text-2xl text-primary dark:text-primary-light"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Architecture Design</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">
+                            Designing robust application architecture using MVC and MVVM patterns
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md">
+                        <div class="bg-primary/10 dark:bg-primary-light/10 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-code-branch text-2xl text-primary dark:text-primary-light"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Version Control</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">
+                            Expert in Git workflows and collaborative development processes
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800/50 section-animate">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-2 text-center">Technical Skills</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
+                My technology stack and development expertise
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Mobile Development -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="h-10 w-10 rounded-full bg-primary/10 dark:bg-primary-light/10 flex items-center justify-center mr-3">
+                            <i class="fas fa-mobile-alt text-primary dark:text-primary-light"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Mobile</h3>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Swift</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">SwiftUI</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">UIKit</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Kotlin</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Jetpack Compose</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">React Native</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Flutter</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Dart</span>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">iOS Development</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Android Development</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Cross-Platform</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">80%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Web Development -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="h-10 w-10 rounded-full bg-primary/10 dark:bg-primary-light/10 flex items-center justify-center mr-3">
+                            <i class="fas fa-code text-primary dark:text-primary-light"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Web</h3>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">JavaScript</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">TypeScript</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">React</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Vue.js</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Angular</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">HTML5</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">CSS3</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Tailwind</span>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Front-end Development</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">UI/UX Design</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">75%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Responsive Design</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend Development -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="h-10 w-10 rounded-full bg-primary/10 dark:bg-primary-light/10 flex items-center justify-center mr-3">
+                            <i class="fas fa-server text-primary dark:text-primary-light"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Backend</h3>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Node.js</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Express</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Firebase</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">MongoDB</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">SQL</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">REST API</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">GraphQL</span>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">API Development</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Database Design</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">80%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Server Management</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">75%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tools & Practices -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="h-10 w-10 rounded-full bg-primary/10 dark:bg-primary-light/10 flex items-center justify-center mr-3">
+                            <i class="fas fa-tools text-primary dark:text-primary-light"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Tools & Practices</h3>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Git</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">CI/CD</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Docker</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Agile/Scrum</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Jira</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">TDD</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">XCode</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Android Studio</span>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Version Control (Git)</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">95%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">DevOps</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">70%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Testing</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Architecture & Patterns -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="h-10 w-10 rounded-full bg-primary/10 dark:bg-primary-light/10 flex items-center justify-center mr-3">
+                            <i class="fas fa-sitemap text-primary dark:text-primary-light"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Architecture & Patterns</h3>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">MVC</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">MVVM</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Clean Architecture</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Repository Pattern</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Dependency Injection</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Design Patterns</span>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">MVC Pattern</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">95%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">MVVM Pattern</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Clean Architecture</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Soft Skills -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="h-10 w-10 rounded-full bg-primary/10 dark:bg-primary-light/10 flex items-center justify-center mr-3">
+                            <i class="fas fa-users text-primary dark:text-primary-light"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Soft Skills</h3>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Communication</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Problem-solving</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Team Leadership</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Project Management</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Mentoring</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Time Management</span>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Problem-solving</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Communication</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Project Management</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">80%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div class="bg-primary dark:bg-primary-light h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture" class="py-20 section-animate">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-2 text-center">Architecture Expertise</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
+                My specialization in MVC and MVVM architectural patterns
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- MVC Pattern -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg architecture-diagram">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4 text-primary dark:text-primary-light">Model-View-Controller (MVC)</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-6">
+                            MVC is a classic architectural pattern that separates an application into three main components:
+                            the Model (data), the View (user interface), and the Controller (business logic).
+                            This separation ensures clean code organization and easier maintenance.
+                        </p>
+                        
+                        <div class="bg-gray-100 dark:bg-gray-700/50 p-4 rounded-lg">
+                            <div class="flex flex-col md:flex-row justify-between items-center">
+                                <div class="flex-1 p-3 m-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-center">
+                                    <h4 class="font-medium mb-2">Model</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Data & Business Logic</p>
+                                </div>
+                                
+                                <div class="flex-1 p-3 m-2 bg-green-100 dark:bg-green-900/30 rounded-lg text-center">
+                                    <h4 class="font-medium mb-2">View</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">User Interface</p>
+                                </div>
+                                
+                                <div class="flex-1 p-3 m-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-center">
+                                    <h4 class="font-medium mb-2">Controller</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Handles User Input</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 px-4">
+                                <svg class="w-full" height="80" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Controller to View -->
+                                    <path d="M140 30 L260 30" stroke="#9333ea" stroke-width="2" stroke-dasharray="5 5"/>
+                                    <polygon points="260,30 250,25 250,35" fill="#9333ea"/>
+                                    
+                                    <!-- View to Controller -->
+                                    <path d="M260 50 L140 50" stroke="#16a34a" stroke-width="2" stroke-dasharray="5 5"/>
+                                    <polygon points="140,50 150,45 150,55" fill="#16a34a"/>
+                                    
+                                    <!-- Controller to Model -->
+                                    <path d="M100 60 L100 80 L300 80 L300 60" stroke="#5D5CDE" stroke-width="2"/>
+                                    <polygon points="100,60 95,70 105,70" fill="#5D5CDE"/>
+                                    <polygon points="300,60 295,70 305,70" fill="#5D5CDE"/>
+                                    
+                                    <!-- Text labels -->
+                                    <text x="200" y="25" font-size="10" text-anchor="middle" fill="#9333ea">Updates</text>
+                                    <text x="200" y="65" font-size="10" text-anchor="middle" fill="#16a34a">User Actions</text>
+                                    <text x="200" y="95" font-size="10" text-anchor="middle" fill="#5D5CDE">Data Operations</text>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-medium mb-2">When I use MVC:</h4>
+                            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 text-sm">
+                                <li>Web applications with server-side rendering</li>
+                                <li>Simple mobile applications with straightforward data flow</li>
+                                <li>Projects requiring quick development cycles</li>
+                                <li>Applications with traditional UI frameworks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- MVVM Pattern -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg architecture-diagram">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4 text-secondary dark:text-secondary-light">Model-View-ViewModel (MVVM)</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-6">
+                            MVVM extends the MVC pattern by introducing a ViewModel that acts as an intermediary between the 
+                            View and Model. This pattern is especially well-suited for modern UI frameworks that support data binding.
+                        </p>
+                        
+                        <div class="bg-gray-100 dark:bg-gray-700/50 p-4 rounded-lg">
+                            <div class="flex flex-col justify-between items-center">
+                                <div class="flex flex-col md:flex-row w-full justify-between">
+                                    <div class="flex-1 p-3 m-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-center">
+                                        <h4 class="font-medium mb-2">Model</h4>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Data & Business Logic</p>
+                                    </div>
+                                    
+                                    <div class="flex-1 p-3 m-2 bg-orange-100 dark:bg-orange-900/30 rounded-lg text-center">
+                                        <h4 class="font-medium mb-2">ViewModel</h4>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Presentation Logic</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="w-full p-3 m-2 bg-green-100 dark:bg-green-900/30 rounded-lg text-center">
+                                    <h4 class="font-medium mb-2">View</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">User Interface</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 px-4">
+                                <svg class="w-full" height="80" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- View to ViewModel (Binding) -->
+                                    <path d="M200 30 L200 50" stroke="#16a34a" stroke-width="2"/>
+                                    <path d="M190 50 L190 30" stroke="#16a34a" stroke-width="2"/>
+                                    <polygon points="200,30 195,40 205,40" fill="#16a34a"/>
+                                    <polygon points="190,30 185,40 195,40" fill="#16a34a"/>
+                                    
+                                    <!-- ViewModel to Model -->
+                                    <path d="M140 70 L100 70" stroke="#ea580c" stroke-width="2"/>
+                                    <polygon points="100,70 110,65 110,75" fill="#ea580c"/>
+                                    
+                                    <!-- Model to ViewModel -->
+                                    <path d="M100 60 L140 60" stroke="#3b82f6" stroke-width="2"/>
+                                    <polygon points="140,60 130,55 130,65" fill="#3b82f6"/>
+                                    
+                                    <!-- ViewModel to Model (right side) -->
+                                    <path d="M260 70 L300 70" stroke="#ea580c" stroke-width="2"/>
+                                    <polygon points="300,70 290,65 290,75" fill="#ea580c"/>
+                                    
+                                    <!-- Model to ViewModel (right side) -->
+                                    <path d="M300 60 L260 60" stroke="#3b82f6" stroke-width="2"/>
+                                    <polygon points="260,60 270,55 270,65" fill="#3b82f6"/>
+                                    
+                                    <!-- Text labels -->
+                                    <text x="210" y="40" font-size="10" text-anchor="start" fill="#16a34a">Data Binding</text>
+                                    <text x="200" y="55" font-size="10" text-anchor="end" fill="#ea580c">Updates</text>
+                                    <text x="200" y="75" font-size="10" text-anchor="end" fill="#3b82f6">Notifies</text>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-medium mb-2">When I use MVVM:</h4>
+                            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 text-sm">
+                                <li>Modern reactive UI frameworks (React, Vue, SwiftUI)</li>
+                                <li>Complex applications with rich user interactions</li>
+                                <li>Projects requiring extensive unit testing</li>
+                                <li>Applications with real-time data updates</li>
+                                <li>Mobile apps that benefit from data binding (Android with LiveData)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+                <h3 class="text-xl font-semibold mb-4">My Architecture Approach</h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    While I specialize in MVC and MVVM patterns, I believe in choosing the right architecture for each specific project.
+                    My approach is to combine architectural patterns with modern best practices to create maintainable, testable, and 
+                    scalable applications.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <h4 class="font-medium text-center mb-3">Clean Code</h4>
+                        <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2">
+                            <li>• Single Responsibility Principle</li>
+                            <li>• Dependency Injection</li>
+                            <li>• Clear Naming Conventions</li>
+                            <li>• Modular Components</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <h4 class="font-medium text-center mb-3">Testability</h4>
+                        <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2">
+                            <li>• Unit & Integration Testing</li>
+                            <li>• Test-Driven Development</li>
+                            <li>• Mock Dependencies</li>
+                            <li>• Continuous Integration</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <h4 class="font-medium text-center mb-3">Scalability</h4>
+                        <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2">
+                            <li>• Loose Coupling</li>
+                            <li>• Feature Modularity</li>
+                            <li>• Consistent Error Handling</li>
+                            <li>• Performance Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800/50 section-animate">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-2 text-center">Featured Projects</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
+                Showcasing my work using MVC and MVVM architectural patterns
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-r from-primary/20 to-secondary/20 dark:from-primary/10 dark:to-secondary/10 relative flex items-center justify-center">
+                        <i class="fas fa-shopping-cart text-5xl text-primary dark:text-primary-light"></i>
+                        <div class="absolute top-3 right-3 px-2 py-1 bg-primary text-white text-xs rounded-full">
+                            MVVM
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">E-Commerce App</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            A mobile e-commerce application built with MVVM architecture, featuring product browsing, cart management, and secure payment processing.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">Swift</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">SwiftUI</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">Combine</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">Firebase</span>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center">
+                            <a href="#" class="text-primary dark:text-primary-light hover:underline flex items-center">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-r from-secondary/20 to-primary/20 dark:from-secondary/10 dark:to-primary/10 relative flex items-center justify-center">
+                        <i class="fas fa-tasks text-5xl text-secondary dark:text-secondary-light"></i>
+                        <div class="absolute top-3 right-3 px-2 py-1 bg-secondary text-white text-xs rounded-full">
+                            MVC
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Task Management Dashboard</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            A web-based task management system using MVC architecture with features like task tracking, team collaboration, and progress analytics.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">React</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">Node.js</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">Express</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">MongoDB</span>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center">
+                            <a href="#" class="text-secondary dark:text-secondary-light hover:underline flex items-center">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900/20 dark:to-blue-900/20 relative flex items-center justify-center">
+                        <i class="fas fa-heartbeat text-5xl text-green-500"></i>
+                        <div class="absolute top-3 right-3 px-2 py-1 bg-green-500 text-white text-xs rounded-full">
+                            MVVM
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Health & Fitness Tracker</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            A fitness tracking app implementing MVVM architecture with real-time data visualization, workout plans, and health metrics monitoring.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">Kotlin</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">Android</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">Room DB</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">LiveData</span>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center">
+                            <a href="#" class="text-green-500 hover:underline flex items-center">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 relative flex items-center justify-center">
+                        <i class="fas fa-video text-5xl text-purple-500"></i>
+                        <div class="absolute top-3 right-3 px-2 py-1 bg-purple-500 text-white text-xs rounded-full">
+                            MVC
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Video Streaming Platform</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            A video streaming application built with MVC architecture featuring content recommendations, user profiles, and adaptive playback.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">Vue.js</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">Node.js</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">AWS</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">GraphQL</span>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center">
+                            <a href="#" class="text-purple-500 hover:underline flex items-center">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 relative flex items-center justify-center">
+                        <i class="fas fa-utensils text-5xl text-yellow-500"></i>
+                        <div class="absolute top-3 right-3 px-2 py-1 bg-yellow-500 text-white text-xs rounded-full">
+                            MVVM
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Food Delivery Service</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            A food delivery application using MVVM architecture with real-time order tracking, restaurant discovery, and payment integration.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">Flutter</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">Dart</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">Firebase</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">Provider</span>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center">
+                            <a href="#" class="text-yellow-500 hover:underline flex items-center">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 relative flex items-center justify-center">
+                        <i class="fas fa-comments text-5xl text-blue-500"></i>
+                        <div class="absolute top-3 right-3 px-2 py-1 bg-blue-500 text-white text-xs rounded-full">
+                            MVC
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Real-time Chat Application</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            A messaging platform built with MVC architecture featuring real-time messaging, file sharing, and end-to-end encryption.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">TypeScript</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">Socket.io</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">Express</span>
+                            <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded">MongoDB</span>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center">
+                            <a href="#" class="text-blue-500 hover:underline flex items-center">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="inline-flex items-center text-primary dark:text-primary-light hover:underline">
+                    <span>View All Projects</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 section-animate">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-2 text-center">Work Experience</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
+                My professional journey as a developer
+            </p>
+            
+            <div class="relative max-w-3xl mx-auto">
+                <!-- Timeline Line -->
+                <div class="absolute left-5 top-2 h-full w-0.5 bg-gray-200 dark:bg-gray-700"></div>
+                
+                <!-- Experience 1 -->
+                <div class="ml-12 mb-10 relative">
+                    <!-- Timeline Dot -->
+                    <div class="absolute -left-12 mt-1.5 w-7 h-7 rounded-full border-4 border-white dark:border-gray-900 bg-primary flex items-center justify-center">
+                        <i class="fas fa-briefcase text-white text-xs"></i>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                        <div class="flex flex-wrap justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold">Senior Mobile Developer</h3>
+                            <span class="inline-block px-3 py-1 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light rounded-full text-sm">
+                                2021 - Present
+                            </span>
+                        </div>
+                        <h4 class="text-gray-600 dark:text-gray-400 mb-3">Tech Innovations Inc.</h4>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            Lead the mobile development team in creating and maintaining iOS and Android applications using 
+                            MVVM architecture. Established best practices, mentored junior developers, and managed the entire 
+                            development lifecycle.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1">
+                            <li>Led the architectural redesign of the company's flagship app, improving performance by 40%</li>
+                            <li>Implemented CI/CD pipelines reducing deployment time by 65%</li>
+                            <li>Mentored 5 junior developers in mobile architecture patterns</li>
+                            <li>Integrated advanced analytics and crash reporting systems</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div class="ml-12 mb-10 relative">
+                    <!-- Timeline Dot -->
+                    <div class="absolute -left-12 mt-1.5 w-7 h-7 rounded-full border-4 border-white dark:border-gray-900 bg-secondary flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-white text-xs"></i>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                        <div class="flex flex-wrap justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold">Full Stack Developer</h3>
+                            <span class="inline-block px-3 py-1 bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary-light rounded-full text-sm">
+                                2018 - 2021
+                            </span>
+                        </div>
+                        <h4 class="text-gray-600 dark:text-gray-400 mb-3">WebSolutions Group</h4>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            Developed full-stack web applications using MVC architecture. Worked on client projects ranging from 
+                            e-commerce platforms to content management systems, with a focus on building scalable and maintainable solutions.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1">
+                            <li>Designed and implemented a custom CMS for a major retail client</li>
+                            <li>Optimized database queries improving site load times by 30%</li>
+                            <li>Integrated payment gateways and third-party APIs for e-commerce platforms</li>
+                            <li>Collaborated with UI/UX designers to create responsive interfaces</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Experience 3 -->
+                <div class="ml-12 mb-10 relative">
+                    <!-- Timeline Dot -->
+                    <div class="absolute -left-12 mt-1.5 w-7 h-7 rounded-full border-4 border-white dark:border-gray-900 bg-green-500 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-white text-xs"></i>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                        <div class="flex flex-wrap justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold">Mobile Application Developer</h3>
+                            <span class="inline-block px-3 py-1 bg-green-500/10 dark:bg-green-500/20 text-green-500 rounded-full text-sm">
+                                2016 - 2018
+                            </span>
+                        </div>
+                        <h4 class="text-gray-600 dark:text-gray-400 mb-3">AppCraft Studios</h4>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            Developed native iOS and Android applications for various clients. Implemented MVC architecture for small to 
+                            medium-sized applications and gained experience in different aspects of mobile development.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1">
+                            <li>Created 12+ mobile applications from concept to App Store/Play Store deployment</li>
+                            <li>Implemented location-based services for a travel application</li>
+                            <li>Developed custom UI components for improved user experiences</li>
+                            <li>Collaborated with cross-functional teams on agile development cycles</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Experience 4 -->
+                <div class="ml-12 relative">
+                    <!-- Timeline Dot -->
+                    <div class="absolute -left-12 mt-1.5 w-7 h-7 rounded-full border-4 border-white dark:border-gray-900 bg-purple-500 flex items-center justify-center">
+                        <i class="fas fa-code text-white text-xs"></i>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                        <div class="flex flex-wrap justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold">Junior Web Developer</h3>
+                            <span class="inline-block px-3 py-1 bg-purple-500/10 dark:bg-purple-500/20 text-purple-500 rounded-full text-sm">
+                                2014 - 2016
+                            </span>
+                        </div>
+                        <h4 class="text-gray-600 dark:text-gray-400 mb-3">Digital Solutions Ltd.</h4>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            Started my career developing web applications and learning about software architecture. Built responsive 
+                            websites and gained experience with front-end technologies and basic backend development.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1">
+                            <li>Built responsive websites for small business clients</li>
+                            <li>Learned and implemented basic MVC architecture for web applications</li>
+                            <li>Developed custom WordPress themes and plugins</li>
+                            <li>Participated in code reviews and improved coding standards</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800/50 section-animate">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-2 text-center">Get In Touch</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
+                Let's discuss how I can bring my architecture expertise to your next project
+            </p>
+            
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-semibold mb-6 text-primary dark:text-primary-light">Send Me a Message</h3>
+                    
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-light dark:focus:border-primary-light text-base" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-light dark:focus:border-primary-light text-base" required>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
+                            <select id="subject" name="subject" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-light dark:focus:border-primary-light text-base">
+                                <option value="project">Project Inquiry</option>
+                                <option value="job">Job Opportunity</option>
+                                <option value="consultation">Architecture Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-light dark:focus:border-primary-light text-base" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-3 bg-primary hover:bg-primary-dark text-white rounded-lg transition flex items-center justify-center">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                    
+                    <div id="form-status" class="mt-4 text-center hidden"></div>
+                </div>
+                
+                <div class="grid gap-6 content-start">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-semibold mb-6 text-primary dark:text-primary-light">Contact Information</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-primary"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">Email</p>
+                                    <p class="font-medium">jamalsareea@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone text-primary"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">Phone</p>
+                                    <p class="font-medium">+967 774715669</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">Location</p>
+                                    <p class="font-medium">Yemen Sana`a, CA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+                        <h3 class="font-semibold mb-4 text-primary dark:text-primary-light">Connect With Me</h3>
+                        
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/jamalsareea25" class="bg-gray-200 dark:bg-gray-700 p-3 rounded-full hover:bg-primary hover:text-white transition">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/jamalsareea25" class="bg-gray-200 dark:bg-gray-700 p-3 rounded-full hover:bg-primary hover:text-white transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/jamalsareea25" class="bg-gray-200 dark:bg-gray-700 p-3 rounded-full hover:bg-primary hover:text-white transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-gray-200 dark:bg-gray-700 p-3 rounded-full hover:bg-primary hover:text-white transition">
+                                <i class="fas fa-rss"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-primary dark:bg-primary-dark p-6 rounded-xl shadow-md text-white">
+                        <h3 class="font-semibold mb-3">Need architecture consulting?</h3>
+                        <p class="text-sm mb-4">
+                            I offer specialized consulting services for mobile and web application architecture design. 
+                            Let's build a solid foundation for your project.
+                        </p>
+                        <a href="#" class="inline-block px-4 py-2 bg-white text-primary rounded-lg hover:bg-gray-100 transition text-sm font-medium">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center gap-2">
+                        <div class="h-8 w-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold">
+                            <span class="font-code">{}</span>
+                        </div>
+                        <span class="text-xl font-bold">Dev<span class="text-primary-light">Architect</span></span>
+                    </div>
+                    <p class="mt-2 text-gray-400">Architecture-focused mobile & web development</p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-end">
+                    <p class="text-gray-400 mb-2">&copy; 2023 Your Name. All rights reserved.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary-light transition">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-primary-light transition">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        // Listen for changes in color scheme preference
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+        
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+        
+        mobileThemeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Contact form submission
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            formStatus.textContent = 'Sending message...';
+            formStatus.className = 'mt-4 text-center text-gray-600 dark:text-gray-300';
+            formStatus.classList.remove('hidden');
+            
+            // Simulate form submission
+            setTimeout(() => {
+                formStatus.textContent = 'Message sent successfully!';
+                formStatus.className = 'mt-4 text-center text-green-600 dark:text-green-400';
+                contactForm.reset();
+            }, 1500);
+        });
+        
+        // Animate sections on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.section-animate').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
