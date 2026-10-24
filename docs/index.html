@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamal Sareea | Software Engineer & Architect</title>
+    <meta name="description" content="Personal portfolio of Jamal Sareea - Software Engineer & Architect specializing in Clean Architecture, SOLID principles, Next.js, Laravel, PostgreSQL, and Flutter. Featuring 'رخصة عقار' (Rokhsa Aqar).">
+    <meta name="keywords" content="Jamal Sareea, Software Engineer, Full Stack Developer, Clean Architecture, SOLID, Next.js, Laravel, PostgreSQL, Flutter, رخصة عقار, Rokhsa Aqar, Portfolio">
+    <meta name="author" content="Jamal Sareea">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jamal-sareea25.github.io/protofile/">
+    <meta property="og:title" content="Jamal Sareea | Software Engineer & Architect">
+    <meta property="og:description" content="Explore production-ready architectures, full-stack systems, and featured project 'رخصة عقار' (Rokhsa Aqar).">
+    <meta property="og:image" content="https://rokhsa-aqar.vercel.app/images/logo.png">
+    
+    <!-- Favicon (SVG code badge) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366f1'/%3E%3Cstop offset='100%25' stop-color='%230ea5e9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='65' font-size='48' font-family='monospace' font-weight='bold' fill='white' text-anchor='middle'%3E%7B%7D%3C/text%3E%3C/svg%3E">
+
+    <!-- Fonts: Google Fonts (Outfit, Inter, Cairo, Fira Code) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#4f46e5', // Indigo-600
+                            dark: '#4338ca',
+                            light: '#818cf8',
+                            soft: '#e0e7ff',
+                        },
+                        secondary: {
+                            DEFAULT: '#0ea5e9', // Sky-500
+                            dark: '#0284c7',
+                            light: '#38bdf8',
+                            soft: '#e0f2fe',
+                        },
+                        accent: {
+                            emerald: '#10b981',
+                            amber: '#f59e0b',
+                            purple: '#a855f7'
+                        },
+                        surface: {
+                            light: '#ffffff',
+                            dark: '#0f172a', // Slate-900
+                            cardLight: '#ffffff',
+                            cardDark: '#1e293b', // Slate-800
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Outfit', 'Cairo', 'sans-serif'],
+                        heading: ['Outfit', 'Cairo', 'sans-serif'],
+                        arabic: ['Cairo', 'sans-serif'],
+                        code: ['Fira Code', 'monospace']
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 2.5s infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                        'shimmer': 'shimmer 2.5s infinite linear',
+                        'gradient-x': 'gradientX 8s ease infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+                            '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        },
+                        gradientX: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            font-family: 'Inter', 'Outfit', sans-serif;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Outfit', 'Cairo', sans-serif;
+        }
+
+        .font-arabic {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .font-code {
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* Subtle modern grid pattern */
+        .bg-grid-pattern {
+            background-color: #f8fafc;
+            background-image: radial-gradient(rgba(99, 102, 241, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .dark .bg-grid-pattern {
+            background-color: #0b0f19;
+            background-image: radial-gradient(rgba(129, 140, 248, 0.12) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Glow effects */
+        .glow-card {
+            position: relative;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glow-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -10px rgba(79, 70, 229, 0.18), 0 10px 10px -5px rgba(14, 165, 233, 0.1);
+        }
+
+        .dark .glow-card:hover {
+            box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.3), 0 10px 15px -5px rgba(14, 165, 233, 0.2);
+        }
+
+        /* Shimmer gradient for Coming Soon */
+        .shimmer-badge {
+            background: linear-gradient(90deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.45) 50%, rgba(245, 158, 11, 0.15) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+        }
+
+        /* Scroll reveal animations */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dark .gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Featured project highlight border */
+        .featured-border {
+            position: relative;
+        }
+        .featured-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 1.1rem;
+            padding: 2px;
+            background: linear-gradient(135deg, #4f46e5, #0ea5e9, #10b981);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* Code syntax highlights */
+        .syntax-keyword { color: #f43f5e; font-weight: 600; }
+        .syntax-function { color: #38bdf8; }
+        .syntax-string { color: #10b981; }
+        .syntax-class { color: #fbbf24; }
+        .syntax-comment { color: #94a3b8; font-style: italic; }
+        .syntax-property { color: #c084fc; }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4f46e5;
+        }
+    </style>
+</head>
+<body class="bg-grid-pattern text-slate-800 dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-500 selection:text-white">
+
+    <!-- Top Announcement Bar (Highlighting Rokhsa Aqar) -->
+    <aside aria-label="Announcement" class="bg-gradient-to-r from-indigo-700 via-primary to-sky-600 text-white text-xs sm:text-sm py-2 px-4 shadow-sm relative z-50">
+        <div class="container mx-auto flex items-center justify-between gap-2 flex-wrap">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-white/20 text-white animate-pulse">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block mr-1.5"></span> Live Production
+                </span>
+                <span class="font-medium">
+                    <strong class="font-bold font-arabic">رخصة عقار</strong> — Real Estate Building Permits Platform is now live!
+                </span>
+            </div>
+            <a href="https://rokhsa-aqar.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-semibold underline underline-offset-4 hover:text-sky-200 transition-colors">
+                <span>View Live Deployment</span>
+                <i class="fas fa-arrow-up-right-from-square text-xs ml-1"></i>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Header and Navigation -->
+    <header class="sticky top-0 z-40 glass border-b border-slate-200/80 dark:border-slate-800/80">
+        <div class="container mx-auto px-4 py-3.5">
+            <div class="flex justify-between items-center">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="h-10 w-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white font-bold shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform duration-300">
+                        <span class="font-code text-base font-semibold">{}</span>
+                    </div>
+                    <div>
+                        <span class="text-xl font-heading font-extrabold tracking-tight text-slate-900 dark:text-white">
+                            Jamal<span class="text-primary dark:text-primary-light">.dev</span>
+                        </span>
+                        <span class="hidden sm:block text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">
+                            Software Engineer &amp; Architect
+                        </span>
+                    </div>
+                </a>
+                
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-7 text-sm font-medium">
+                    <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary-light transition-colors">About</a>
+                    <a href="#skills" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary-light transition-colors">Skills</a>
+                    <a href="#architecture" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary-light transition-colors">Architecture</a>
+                    <a href="#projects" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary-light transition-colors flex items-center gap-1.5">
+                        <span>Projects</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300 font-semibold">New</span>
+                    </a>
+                    <a href="#experience" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary-light transition-colors">Experience</a>
+                    <a href="#contact" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary-light transition-colors">Contact</a>
+                    
+                    <!-- Featured Project Quick Link Button -->
+                    <a href="https://rokhsa-aqar.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-primary dark:text-primary-light border border-indigo-200 dark:border-indigo-800 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-all text-xs font-semibold flex items-center gap-1.5 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                        <span class="font-arabic font-bold">رخصة عقار</span>
+                        <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" aria-label="Toggle Dark/Light Mode" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
+                        <i class="fas fa-moon text-base dark:hidden"></i>
+                        <i class="fas fa-sun text-base hidden dark:block text-amber-400"></i>
+                    </button>
+                </nav>
+                
+                <!-- Mobile Actions -->
+                <div class="flex items-center gap-2 md:hidden">
+                    <button id="mobile-theme-toggle" aria-label="Toggle theme on mobile" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                        <i class="fas fa-moon text-base dark:hidden"></i>
+                        <i class="fas fa-sun text-base hidden dark:block text-amber-400"></i>
+                    </button>
+                    
+                    <button id="mobile-menu-button" aria-label="Toggle navigation menu" class="p-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                        <i class="fas fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="md:hidden hidden pt-4 pb-2 border-t border-slate-200 dark:border-slate-800 mt-3 animate-fade-in">
+                <nav class="flex flex-col space-y-3 font-medium text-base">
+                    <a href="#about" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">About Me</a>
+                    <a href="#skills" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">Technical Skills</a>
+                    <a href="#architecture" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">Architecture &amp; Clean Code</a>
+                    <a href="#projects" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center justify-between">
+                        <span>Projects</span>
+                        <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300 font-semibold font-arabic">رخصة عقار</span>
+                    </a>
+                    <a href="#experience" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">Work Experience</a>
+                    <a href="#contact" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">Contact</a>
+                    
+                    <div class="pt-2">
+                        <a href="https://rokhsa-aqar.vercel.app/" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-semibold text-sm shadow-md">
+                            <span class="font-arabic">زيارة منصة رخصة عقار</span>
+                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center py-16 md:py-24 overflow-hidden">
+        <!-- Background Ambient Glow Orbs -->
+        <div class="absolute top-1/4 -left-32 w-96 h-96 bg-primary/15 dark:bg-primary/20 rounded-full blur-3xl pointer-events-none animate-pulse-glow"></div>
+        <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-secondary/15 dark:bg-secondary/20 rounded-full blur-3xl pointer-events-none animate-pulse-glow" style="animation-delay: 1.5s;"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Introduction & CTA -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/70 border border-indigo-200 dark:border-indigo-800/80 text-primary dark:text-primary-light text-xs sm:text-sm font-semibold shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>Available for Software Engineering &amp; Architecture Roles</span>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight leading-[1.15]">
+                        Engineering Scalable Systems With 
+                        <span class="gradient-text block mt-1">Clean Architecture &amp; SOLID</span>
+                    </h1>
+                    
+                    <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl font-normal leading-relaxed">
+                        I am <strong class="text-slate-900 dark:text-white font-semibold">Jamal Sareea</strong>, a Software Engineer &amp; Full-Stack Architect. 
+                        I specialize in building production-grade web &amp; mobile solutions with 
+                        <span class="text-primary dark:text-primary-light font-semibold">Next.js</span>, 
+                        <span class="text-primary dark:text-primary-light font-semibold">Laravel</span>, 
+                        <span class="text-primary dark:text-primary-light font-semibold">PostgreSQL</span>, and 
+                        <span class="text-primary dark:text-primary-light font-semibold">Flutter</span>.
+                    </p>
+                    
+                    <!-- Quick architectural highlights badges -->
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        <span class="px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold flex items-center gap-1.5 border border-slate-200 dark:border-slate-700">
+                            <i class="fas fa-layer-group text-primary"></i> Clean Architecture
+                        </span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold flex items-center gap-1.5 border border-slate-200 dark:border-slate-700">
+                            <i class="fas fa-cubes text-secondary"></i> SOLID Principles
+                        </span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold flex items-center gap-1.5 border border-slate-200 dark:border-slate-700">
+                            <i class="fas fa-shield-halved text-emerald-500"></i> JWT &amp; OTP Auth
+                        </span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold flex items-center gap-1.5 border border-slate-200 dark:border-slate-700">
+                            <i class="fas fa-database text-purple-500"></i> PostgreSQL
+                        </span>
+                    </div>
+
+                    <!-- Call To Action Buttons -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#projects" class="px-6 py-3.5 bg-gradient-to-r from-primary to-indigo-600 hover:from-primary-dark hover:to-primary text-white rounded-xl transition-all duration-300 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 font-semibold text-base flex items-center gap-2 group">
+                            <span>Explore Featured Project</span>
+                            <i class="fas fa-arrow-down text-sm group-hover:translate-y-1 transition-transform"></i>
+                        </a>
+                        
+                        <a href="https://rokhsa-aqar.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-primary text-slate-800 dark:text-slate-200 hover:text-primary dark:hover:text-primary-light hover:bg-white dark:hover:bg-slate-800/80 transition-all duration-300 font-semibold text-base flex items-center gap-2 shadow-sm">
+                            <span class="font-arabic font-bold">رخصة عقار</span>
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-400">Live</span>
+                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Social & Contact Badges -->
+                    <div class="flex items-center gap-5 pt-4 text-slate-500 dark:text-slate-400">
+                        <span class="text-xs uppercase tracking-wider font-semibold">Connect:</span>
+                        <a href="https://github.com/jamal-sareea25" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="text-lg hover:text-slate-900 dark:hover:text-white transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/jamal-sareea-0b3b62261" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="text-lg hover:text-primary transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/jam_sa1" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile" class="text-lg hover:text-pink-500 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:jamalsareea@gmail.com" aria-label="Email Jamal Sareea" class="text-lg hover:text-emerald-500 transition-colors">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Interactive Code Architecture Card -->
+                <div class="lg:col-span-5">
+                    <div class="glow-card rounded-2xl bg-slate-900 border border-slate-700/80 shadow-2xl overflow-hidden relative">
+                        <!-- Top Terminal Bar -->
+                        <div class="flex items-center justify-between px-4 py-3 bg-slate-800/90 border-b border-slate-700/70 text-xs">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+                                <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                                <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+                                <span class="ml-2 font-code text-slate-300 font-medium">PermitService.ts</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="px-2 py-0.5 rounded text-[10px] font-code bg-emerald-950 text-emerald-400 border border-emerald-800/50">
+                                    Clean Architecture
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Code Body -->
+                        <div class="p-5 font-code text-xs sm:text-sm leading-relaxed overflow-x-auto text-slate-300">
+<pre><code><span class="syntax-comment">// Domain Model &amp; UseCase: Rokhsa Aqar (رخصة عقار)</span>
+<span class="syntax-keyword">interface</span> <span class="syntax-class">IPermitRepository</span> {
+  <span class="syntax-function">findByOwnerId</span>(ownerId: <span class="syntax-class">UUID</span>): <span class="syntax-class">Promise</span>&lt;<span class="syntax-class">BuildingPermit</span>&gt;;
+  <span class="syntax-function">verifyOtpAndIssue</span>(permitId: <span class="syntax-class">string</span>, otp: <span class="syntax-class">string</span>): <span class="syntax-class">Promise</span>&lt;<span class="syntax-class">PermitStatus</span>&gt;;
+}
+
+<span class="syntax-keyword">export class</span> <span class="syntax-class">IssuePermitUseCase</span> {
+  <span class="syntax-keyword">constructor</span>(
+    <span class="syntax-keyword">private readonly</span> <span class="syntax-property">permitRepo</span>: <span class="syntax-class">IPermitRepository</span>,
+    <span class="syntax-keyword">private readonly</span> <span class="syntax-property">authGuard</span>: <span class="syntax-class">SanctumJwtAuth</span>,
+    <span class="syntax-keyword">private readonly</span> <span class="syntax-property">otpService</span>: <span class="syntax-class">OtpVerificationService</span>
+  ) {}
+
+  <span class="syntax-keyword">async</span> <span class="syntax-function">execute</span>(command: <span class="syntax-class">IssuePermitCommand</span>): <span class="syntax-class">Promise</span>&lt;<span class="syntax-class">Result</span>&gt; {
+    <span class="syntax-comment">// 1. Enforce SOLID: Dependency Inversion</span>
+    <span class="syntax-keyword">const</span> isValidOtp = <span class="syntax-keyword">await</span> <span class="syntax-keyword">this</span>.otpService.<span class="syntax-function">verify</span>(command.phone, command.otp);
+    <span class="syntax-keyword">if</span> (!isValidOtp) <span class="syntax-keyword">throw new</span> <span class="syntax-class">InvalidOtpException</span>();
+
+    <span class="syntax-comment">// 2. PostgreSQL Atomic Transaction</span>
+    <span class="syntax-keyword">return await</span> <span class="syntax-keyword">this</span>.permitRepo.<span class="syntax-function">verifyOtpAndIssue</span>(command.permitId, command.otp);
+  }
+}</code></pre>
+                        </div>
+                        
+                        <!-- Bottom status info -->
+                        <div class="px-5 py-3 bg-slate-800/50 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span>SOLID Compliant • Test Coverage 94%</span>
+                            </div>
+                            <span class="font-code text-slate-400">Next.js + Laravel</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats Bar -->
+    <section class="py-8 bg-white/60 dark:bg-slate-900/60 border-y border-slate-200 dark:border-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-3">
+                    <p class="text-3xl sm:text-4xl font-heading font-black text-primary dark:text-primary-light">5+</p>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">Years Development Experience</p>
+                </div>
+                <div class="p-3">
+                    <p class="text-3xl sm:text-4xl font-heading font-black text-secondary dark:text-secondary-light">100%</p>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">Clean Code &amp; SOLID Focus</p>
+                </div>
+                <div class="p-3">
+                    <p class="text-3xl sm:text-4xl font-heading font-black text-emerald-500">Production</p>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">Ready Enterprise Systems</p>
+                </div>
+                <div class="p-3">
+                    <p class="text-3xl sm:text-4xl font-heading font-black text-purple-500">Full-Stack</p>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">Web, Mobile &amp; Cloud Architecture</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 reveal-on-scroll">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-14">
+                <span class="text-xs uppercase tracking-widest font-bold text-primary dark:text-primary-light">Professional Profile</span>
+                <h2 class="text-3xl sm:text-4xl font-heading font-bold text-slate-900 dark:text-white mt-2">
+                    About Me &amp; My Engineering Philosophy
+                </h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+                <!-- Bio card -->
+                <div class="lg:col-span-7 bg-white dark:bg-slate-800/80 rounded-2xl p-7 sm:p-9 shadow-lg border border-slate-200/80 dark:border-slate-700/80">
+                    <h3 class="text-2xl font-bold font-heading text-slate-900 dark:text-white mb-4">
+                        Software Engineer with an Architectural-First Mindset
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        I am dedicated to crafting robust, high-availability web and mobile architectures. 
+                        Rather than just writing code that runs, my mission is to deliver software that can scale gracefully, 
+                        withstand rapid business changes, and maintain high testability and maintainability over time.
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                        From designing complex governmental systems like <strong class="text-primary dark:text-primary-light font-arabic">رخصة عقار</strong> 
+                        to architecting reactive cross-platform mobile apps with Flutter and backend microservices with Laravel, 
+                        I bring a rigorous adherence to Clean Architecture, SOLID principles, and automated reliability.
+                    </p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-primary dark:text-primary-light shrink-0 mt-0.5">
+                                <i class="fas fa-cubes text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-900 dark:text-white text-sm">Clean Architecture &amp; SOLID</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Modular isolation of business rules from UI and database frameworks.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-sky-100 dark:bg-sky-900/50 flex items-center justify-center text-secondary dark:text-secondary-light shrink-0 mt-0.5">
+                                <i class="fas fa-lock text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-900 dark:text-white text-sm">Enterprise Security</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">JWT, Laravel Sanctum, role-based RBAC, and two-factor OTP verification.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5">
+                                <i class="fas fa-database text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-900 dark:text-white text-sm">High-Performance DBs</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">PostgreSQL spatial zoning, transactions, indexes, and normalization.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0 mt-0.5">
+                                <i class="fas fa-mobile-screen-button text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-900 dark:text-white text-sm">Cross-Platform UX</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Modern responsive interfaces with Next.js, Tailwind, and Flutter.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right 4 feature cards -->
+                <div class="lg:col-span-5 grid sm:grid-cols-2 gap-4">
+                    <div class="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-sm border border-slate-200 dark:border-slate-700/80 glow-card">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-primary-light mb-3">
+                            <i class="fas fa-laptop-code text-xl"></i>
+                        </div>
+                        <h4 class="font-bold font-heading text-slate-900 dark:text-white mb-1">Web Development</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                            Full-stack engineering with Next.js, React, Tailwind CSS, TypeScript &amp; state engines.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-sm border border-slate-200 dark:border-slate-700/80 glow-card">
+                        <div class="w-12 h-12 rounded-xl bg-secondary/10 dark:bg-secondary/20 flex items-center justify-center text-secondary dark:text-secondary-light mb-3">
+                            <i class="fas fa-server text-xl"></i>
+                        </div>
+                        <h4 class="font-bold font-heading text-slate-900 dark:text-white mb-1">Backend &amp; APIs</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                            Scalable REST APIs using Laravel, PHP 8+, PostgreSQL, Redis &amp; Clean Architecture.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-sm border border-slate-200 dark:border-slate-700/80 glow-card">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-3">
+                            <i class="fas fa-mobile-alt text-xl"></i>
+                        </div>
+                        <h4 class="font-bold font-heading text-slate-900 dark:text-white mb-1">Mobile Engineering</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                            Cross-platform apps built with Flutter, Dart, MVVM and native Android integrations.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-sm border border-slate-200 dark:border-slate-700/80 glow-card">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 dark:bg-purple-500/20 flex items-center justify-center text-purple-600 dark:text-purple-400 mb-3">
+                            <i class="fas fa-sitemap text-xl"></i>
+                        </div>
+                        <h4 class="font-bold font-heading text-slate-900 dark:text-white mb-1">System Architecture</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                            System decomposition, database modeling, authentication pipelines, and CI/CD workflows.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills" class="py-20 bg-slate-100/60 dark:bg-slate-900/40 border-y border-slate-200 dark:border-slate-800/80 reveal-on-scroll">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-14">
+                <span class="text-xs uppercase tracking-widest font-bold text-primary dark:text-primary-light">Core Competencies</span>
+                <h2 class="text-3xl sm:text-4xl font-heading font-bold text-slate-900 dark:text-white mt-2">
+                    Technical Stack &amp; Specializations
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 mt-2 text-sm sm:text-base">
+                    Production-proven technologies powering enterprise web applications, mobile platforms, and secure APIs.
+                </p>
+                <div class="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 1. Frontend & UI -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md border border-slate-200 dark:border-slate-700/80 glow-card">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950 flex items-center justify-center text-primary dark:text-primary-light">
+                            <i class="fab fa-react text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold font-heading text-lg text-slate-900 dark:text-white">Frontend Ecosystem</h3>
+                            <span class="text-xs text-slate-500 dark:text-slate-400">Modern Web &amp; Responsive UI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-primary dark:text-primary-light text-xs font-semibold border border-indigo-200 dark:border-indigo-800">Next.js 14/15</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">React</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">TypeScript</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">Tailwind CSS</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">HTML5 &amp; CSS3</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">Responsive / RTL</span>
+                    </div>
+                    
+                    <div class="space-y-3 text-xs">
+                        <div>
+                            <div class="flex justify-between font-medium mb-1">
+                                <span>Next.js &amp; React SSR/SSG</span>
+                                <span class="text-primary font-bold">92%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-primary h-2 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between font-medium mb-1">
+                                <span>Tailwind CSS &amp; UI Components</span>
+                                <span class="text-primary font-bold">95%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 2. Backend & Clean Architecture -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md border border-slate-200 dark:border-slate-700/80 glow-card">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-xl bg-rose-100 dark:bg-rose-950 flex items-center justify-center text-rose-600 dark:text-rose-400">
+                            <i class="fab fa-laravel text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold font-heading text-lg text-slate-900 dark:text-white">Backend Engineering</h3>
+                            <span class="text-xs text-slate-500 dark:text-slate-400">APIs &amp; Business Logic</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2.5 py-1 rounded-lg bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 text-xs font-semibold border border-rose-200 dark:border-rose-800">Laravel</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">PHP 8+</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">RESTful APIs</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">Repository Pattern</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">Service Layer</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">Node.js / Express</span>
+                    </div>
+                    
+                    <div class="space-y-3 text-xs">
+                        <div>
+                            <div class="flex justify-between font-medium mb-1">
+                                <span>Laravel Clean Architecture</span>
+                                <span class="text-rose-600 dark:text-rose-400 font-bold">95%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-rose-600 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between font-medium mb-1">
+                                <span>REST API Design &amp; Security</span>
+                                <span class="text-rose-600 dark:text-rose-400 font-bold">92%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-rose-600 h-2 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Databases & Security -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md border border-slate-200 dark:border-slate-700/80 glow-card">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-xl bg-sky-100 dark:bg-sky-950 flex items-center justify-center text-secondary dark:text-secondary-light">
+                            <i class="fas fa-shield-alt text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold font-heading text-lg text-slate-900 dark:text-white">Databases &amp; Auth</h3>
+                            <span class="text-xs text-slate-500 dark:text-slate-400">Data Integrity &amp; Verification</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2.5 py-1 rounded-lg bg-sky-50 dark:bg-sky-950/60 text-secondary dark:text-secondary-light text-xs font-semibold border border-sky-200 dark:border-sky-800">PostgreSQL</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">MySQL</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">JWT Auth</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">Laravel Sanctum</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">OTP 2FA Verification</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">Redis</span>
+                    </div>
+                    
+                    <div class="space-y-3 text-xs">
+                        <div>
+                            <div class="flex justify-between font-medium mb-1">
+                                <span>PostgreSQL &amp; Query Optimization</span>
+                                <span class="text-secondary font-bold">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-secondary h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between font-medium mb-1">
+                                <span>Sanctum, JWT &amp; OTP Auth</span>
+                                <span class="text-secondary font-bold">94%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-secondary h-2 rounded-full" style="width: 94%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Mobile Engineering -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md border border-slate-200 dark:border-slate-700/80 glow-card">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-100 dark:bg-cyan-950 flex items-center justify-center text-cyan-600 dark:text-cyan-400">
+                            <i class="fas fa-mobile-screen-button text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold font-heading text-lg text-slate-900 dark:text-white">Mobile Development</h3>
+                            <span class="text-xs text-slate-500 dark:text-slate-400">iOS &amp; Android Apps</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2.5 py-1 rounded-lg bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400 text-xs font-semibold border border-cyan-200 dark:border-cyan-800">Flutter</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">Dart</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">Kotlin</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">State Management</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">MVVM</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">Firebase</span>
+                    </div>
+                    
+                    <div class="space-y-3 text-xs">
+                        <div>
+                            <div class="flex justify-between font-medium mb-1">
+                                <span>Flutter Cross-Platform</span>
+                                <span class="text-cyan-600 dark:text-cyan-400 font-bold">88%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-cyan-600 h-2 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between font-medium mb-1">
+                                <span>Native Android Integrations</span>
+                                <span class="text-cyan-600 dark:text-cyan-400 font-bold">82%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-cyan-600 h-2 rounded-full" style="width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Architecture & SOLID Patterns -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md border border-slate-200 dark:border-slate-700/80 glow-card">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950 flex items-center justify-center text-amber-600 dark:text-amber-400">
+                            <i class="fas fa-sitemap text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold font-heading text-lg text-slate-900 dark:text-white">Architecture Principles</h3>
+                            <span class="text-xs text-slate-500 dark:text-slate-400">Scalable System Design</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2.5 py-1 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 text-xs font-semibold border border-amber-200 dark:border-amber-800">Clean Architecture</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">SOLID</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">MVC &amp; MVVM</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">Dependency Injection</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">DDD Concepts</span>
+                    </div>
+                    
+                    <div class="space-y-3 text-xs">
+                        <div>
+                            <div class="flex justify-between font-medium mb-1">
+                                <span>SOLID Principles Application</span>
+                                <span class="text-amber-600 dark:text-amber-400 font-bold">96%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-amber-600 h-2 rounded-full" style="width: 96%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between font-medium mb-1">
+                                <span>Clean Architecture Layering</span>
+                                <span class="text-amber-600 dark:text-amber-400 font-bold">94%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-amber-600 h-2 rounded-full" style="width: 94%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. DevOps & Tooling -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md border border-slate-200 dark:border-slate-700/80 glow-card">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                            <i class="fas fa-toolbox text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold font-heading text-lg text-slate-900 dark:text-white">DevOps &amp; Workflow</h3>
+                            <span class="text-xs text-slate-500 dark:text-slate-400">Deployment &amp; Collaboration</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 text-xs font-semibold border border-emerald-200 dark:border-emerald-800">Git &amp; GitHub</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">CI/CD Actions</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">Docker</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">Vercel</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">Postman</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 text-xs font-medium">TDD / Unit Tests</span>
+                    </div>
+                    
+                    <div class="space-y-3 text-xs">
+                        <div>
+                            <div class="flex justify-between font-medium mb-1">
+                                <span>Git Workflows &amp; Branching</span>
+                                <span class="text-emerald-600 dark:text-emerald-400 font-bold">96%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-emerald-600 h-2 rounded-full" style="width: 96%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between font-medium mb-1">
+                                <span>Cloud Deployment (Vercel, VPS)</span>
+                                <span class="text-emerald-600 dark:text-emerald-400 font-bold">88%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-emerald-600 h-2 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture" class="py-20 reveal-on-scroll">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-14">
+                <span class="text-xs uppercase tracking-widest font-bold text-primary dark:text-primary-light">Architectural Expertise</span>
+                <h2 class="text-3xl sm:text-4xl font-heading font-bold text-slate-900 dark:text-white mt-2">
+                    Clean Architecture &amp; SOLID Principles
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 mt-2 text-sm sm:text-base">
+                    Building maintainable software by decoupling business rules from external libraries, user interfaces, and database drivers.
+                </p>
+                <div class="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Clean Architecture Card -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-7 shadow-md border border-slate-200 dark:border-slate-700/80 glow-card flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-indigo-100 dark:bg-indigo-950/80 flex items-center justify-center text-primary dark:text-primary-light mb-4">
+                            <i class="fas fa-circle-nodes text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-slate-900 dark:text-white mb-2">
+                            Clean Architecture
+                        </h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+                            Applied in enterprise projects like <em>رخصة عقار</em> for total separation of concerns.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-600 dark:text-slate-300">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-emerald-500 mt-0.5"></i>
+                                <span><strong>Entities &amp; Domain:</strong> Pure business rules without framework coupling.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-emerald-500 mt-0.5"></i>
+                                <span><strong>Use Cases:</strong> Application-specific orchestrations and commands.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-emerald-500 mt-0.5"></i>
+                                <span><strong>Interface Adapters:</strong> Repositories, DTOs, and API controllers.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-emerald-500 mt-0.5"></i>
+                                <span><strong>Frameworks &amp; Drivers:</strong> Web (Next.js), DB (PostgreSQL), External OTP APIs.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700/60 text-xs text-primary dark:text-primary-light font-semibold">
+                        Used for: Complex Enterprise &amp; High-Security Platforms
+                    </div>
+                </div>
+
+                <!-- SOLID Principles Card -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-7 shadow-md border border-slate-200 dark:border-slate-700/80 glow-card flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-sky-100 dark:bg-sky-950/80 flex items-center justify-center text-secondary dark:text-secondary-light mb-4">
+                            <i class="fas fa-shapes text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-slate-900 dark:text-white mb-2">
+                            SOLID Principles
+                        </h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+                            Standard design discipline enforced across Laravel and TypeScript backends.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-600 dark:text-slate-300">
+                            <li class="flex items-start gap-2">
+                                <span class="font-bold text-primary font-code">S</span>
+                                <span><strong>Single Responsibility:</strong> Each service handles one discrete task.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="font-bold text-secondary font-code">O</span>
+                                <span><strong>Open/Closed:</strong> Extensible modules via strategies and decorators.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="font-bold text-emerald-500 font-code">L</span>
+                                <span><strong>Liskov Substitution:</strong> Interchangeable repository implementations.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="font-bold text-amber-500 font-code">I</span>
+                                <span><strong>Interface Segregation:</strong> Compact, focused contracts for clients.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="font-bold text-purple-500 font-code">D</span>
+                                <span><strong>Dependency Inversion:</strong> Code depends on abstractions, not concretions.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700/60 text-xs text-secondary dark:text-secondary-light font-semibold">
+                        Used for: Maintainable, Test-Driven Codebases
+                    </div>
+                </div>
+
+                <!-- MVC & MVVM Patterns Card -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-7 shadow-md border border-slate-200 dark:border-slate-700/80 glow-card flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-950/80 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-4">
+                            <i class="fas fa-layer-group text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-slate-900 dark:text-white mb-2">
+                            MVC &amp; MVVM Patterns
+                        </h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+                            Proven patterns tailored for web controllers and reactive mobile state.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-600 dark:text-slate-300">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-primary mt-0.5"></i>
+                                <span><strong>MVC:</strong> Streamlined HTTP request lifecycle, routing, and controller validation.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-primary mt-0.5"></i>
+                                <span><strong>MVVM:</strong> Reactive two-way bindings for Flutter, Kotlin, and React view states.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-primary mt-0.5"></i>
+                                <span><strong>State Isolation:</strong> UI re-renders only on immutable state transitions.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-primary mt-0.5"></i>
+                                <span><strong>Mockability:</strong> Enables fast unit testing without launching emulator or browser.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700/60 text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
+                        Used for: Flutter Mobile &amp; Web Interfaces
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-slate-50 dark:bg-slate-900/60 border-t border-slate-200 dark:border-slate-800 reveal-on-scroll">
+        <div class="container mx-auto px-4">
+            
+            <!-- Section Title -->
+            <div class="max-w-3xl mx-auto text-center mb-14">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-primary dark:bg-indigo-950 dark:text-primary-light">
+                    <i class="fas fa-star text-amber-500"></i> Portfolio Showcase
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mt-3">
+                    Featured Projects
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 mt-3 text-sm sm:text-base max-w-xl mx-auto">
+                    Showcasing production-ready enterprise applications alongside upcoming architectural prototypes.
+                </p>
+                <div class="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <!-- #1 PRIMARY FEATURED PROJECT: رخصة عقار (Rokhsa Aqar) -->
+            <div id="rokhsa-aqar" class="featured-border rounded-2xl bg-white dark:bg-slate-800/95 shadow-2xl p-6 sm:p-10 mb-16 relative overflow-hidden transition-all duration-300">
+                
+                <!-- Ambient Glow inside Card -->
+                <div class="absolute -top-24 -right-24 w-80 h-80 bg-gradient-to-br from-primary/10 via-secondary/15 to-transparent rounded-full blur-2xl pointer-events-none"></div>
+
+                <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+                    
+                    <!-- Left Details Column -->
+                    <div class="lg:col-span-7 space-y-5">
+                        
+                        <!-- Badges Header -->
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="px-3 py-1 rounded-full bg-gradient-to-r from-indigo-600 to-primary text-white text-xs font-bold shadow-sm flex items-center gap-1.5">
+                                <i class="fas fa-crown text-amber-300 text-xs"></i>
+                                #1 Featured Project
+                            </span>
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 text-xs font-semibold flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                                Production Ready
+                            </span>
+                            <span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium">
+                                Clean Architecture
+                            </span>
+                        </div>
+                        
+                        <!-- Project Title (Dual Arabic/English) -->
+                        <div>
+                            <div class="flex items-center gap-3">
+                                <h3 class="text-3xl sm:text-4xl font-heading font-black text-slate-900 dark:text-white">
+                                    <span class="font-arabic">رخصة عقار</span>
+                                    <span class="text-slate-400 font-light text-2xl sm:text-3xl">| Rokhsa Aqar</span>
+                                </h3>
+                            </div>
+                            <p class="text-sm font-semibold text-primary dark:text-primary-light mt-1 font-arabic">
+                                منصة تصاريح البناء العقاري الرقمية - Real Estate Building Permits &amp; Licensing Platform
+                            </p>
+                        </div>
+                        
+                        <!-- Description -->
+                        <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+                            A production-ready digital government &amp; real estate platform engineered to automate and streamline the application, 
+                            inspection, engineering review, and issuance of building permits. Built with an enterprise-grade decoupling strategy, 
+                            strict adherence to <strong class="text-slate-900 dark:text-white">Clean Architecture</strong> and 
+                            <strong class="text-slate-900 dark:text-white">SOLID principles</strong> to guarantee scalability, transaction integrity, and audit compliance.
+                        </p>
+                        
+                        <!-- Core Architecture & Stack Matrix -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs">
+                            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+                                <div class="text-primary font-bold flex items-center gap-1.5 mb-1">
+                                    <i class="fab fa-react"></i> Next.js Frontend
+                                </div>
+                                <p class="text-slate-500 dark:text-slate-400">SSR/SSG, Tailwind CSS, Responsive RTL, Vercel Edge.</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+                                <div class="text-rose-500 font-bold flex items-center gap-1.5 mb-1">
+                                    <i class="fab fa-laravel"></i> Laravel Backend
+                                </div>
+                                <p class="text-slate-500 dark:text-slate-400">Clean Architecture, SOLID, Service &amp; Repository layers.</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+                                <div class="text-secondary font-bold flex items-center gap-1.5 mb-1">
+                                    <i class="fas fa-database"></i> PostgreSQL
+                                </div>
+                                <p class="text-slate-500 dark:text-slate-400">Relational schemas, transactional integrity &amp; indexing.</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+                                <div class="text-emerald-500 font-bold flex items-center gap-1.5 mb-1">
+                                    <i class="fas fa-key"></i> JWT / Sanctum
+                                </div>
+                                <p class="text-slate-500 dark:text-slate-400">Multi-tenant role-based RBAC authorization.</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+                                <div class="text-amber-500 font-bold flex items-center gap-1.5 mb-1">
+                                    <i class="fas fa-shield-halved"></i> OTP Verification
+                                </div>
+                                <p class="text-slate-500 dark:text-slate-400">Two-factor SMS verification for license issuance.</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+                                <div class="text-purple-500 font-bold flex items-center gap-1.5 mb-1">
+                                    <i class="fas fa-layer-group"></i> Clean Code
+                                </div>
+                                <p class="text-slate-500 dark:text-slate-400">Strict Single Responsibility &amp; Dependency Inversion.</p>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-wrap items-center gap-3 pt-3">
+                            <!-- Live Vercel Button -->
+                            <a href="https://rokhsa-aqar.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-gradient-to-r from-primary to-indigo-600 hover:from-primary-dark hover:to-primary text-white font-semibold text-sm flex items-center gap-2 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all">
+                                <i class="fas fa-globe text-base"></i>
+                                <span>Live Demo (Vercel)</span>
+                                <i class="fas fa-arrow-up-right-from-square text-xs ml-1"></i>
+                            </a>
+                            
+                            <!-- Repositories Link -->
+                            <a href="https://github.com/jamal-sareea25" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-slate-900 dark:bg-slate-700 hover:bg-slate-800 text-white font-semibold text-sm flex items-center gap-2 transition-all">
+                                <i class="fab fa-github text-base"></i>
+                                <span>Repositories</span>
+                                <i class="fas fa-external-link-alt text-xs ml-0.5"></i>
+                            </a>
+                            
+                            <!-- Architecture Modal Trigger / Details Toggle -->
+                            <button onclick="document.getElementById('rokhsa-arch-modal').classList.toggle('hidden')" class="px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-primary text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary-light font-semibold text-sm flex items-center gap-2 transition-all">
+                                <i class="fas fa-diagram-project text-base text-primary"></i>
+                                <span>Architecture Details</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Visual Interactive Preview -->
+                    <div class="lg:col-span-5">
+                        <div class="rounded-2xl overflow-hidden bg-slate-900 border border-slate-700/80 shadow-2xl">
+                            <!-- Browser mock bar -->
+                            <div class="px-4 py-2.5 bg-slate-800/90 border-b border-slate-700 flex items-center justify-between text-xs text-slate-400">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                                </div>
+                                <div class="bg-slate-900 px-3 py-1 rounded text-[11px] font-code text-slate-300 flex items-center gap-1 border border-slate-700/50">
+                                    <i class="fas fa-lock text-[10px] text-emerald-400"></i>
+                                    <span>https://rokhsa-aqar.vercel.app</span>
+                                </div>
+                                <a href="https://rokhsa-aqar.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition">
+                                    <i class="fas fa-external-link-alt text-xs"></i>
+                                </a>
+                            </div>
+
+                            <!-- Interactive Card Graphic / Workflow -->
+                            <div class="p-6 bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950/40 text-white">
+                                <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
+                                    <div>
+                                        <h4 class="font-bold text-base font-arabic">منصة رخصة عقار الإلكترونية</h4>
+                                        <p class="text-xs text-slate-400">نظام استخراج تصاريح البناء والهندسة</p>
+                                    </div>
+                                    <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                                        Active Vercel Build
+                                    </span>
+                                </div>
+                                
+                                <!-- Workflow Step Nodes -->
+                                <div class="space-y-3 font-arabic text-xs">
+                                    <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-800/70 border border-slate-700">
+                                        <div class="flex items-center gap-2.5">
+                                            <div class="w-6 h-6 rounded-full bg-primary/30 text-primary-light flex items-center justify-center font-bold text-[10px]">1</div>
+                                            <span>تقديم طلب الرخصة وتدقيق الوثائق</span>
+                                        </div>
+                                        <span class="text-[10px] text-emerald-400 font-sans font-medium">Verified</span>
+                                    </div>
+
+                                    <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-800/70 border border-slate-700">
+                                        <div class="flex items-center gap-2.5">
+                                            <div class="w-6 h-6 rounded-full bg-secondary/30 text-secondary-light flex items-center justify-center font-bold text-[10px]">2</div>
+                                            <span>المعاينة الميدانية والرفع المساحي</span>
+                                        </div>
+                                        <span class="text-[10px] text-emerald-400 font-sans font-medium">PostGIS / Map</span>
+                                    </div>
+
+                                    <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-800/70 border border-slate-700">
+                                        <div class="flex items-center gap-2.5">
+                                            <div class="w-6 h-6 rounded-full bg-amber-500/30 text-amber-400 flex items-center justify-center font-bold text-[10px]">3</div>
+                                            <span>التحقق عبر رمز التحقق (OTP)</span>
+                                        </div>
+                                        <span class="text-[10px] text-amber-400 font-sans font-medium">2FA SMS</span>
+                                    </div>
+
+                                    <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-800/70 border border-slate-700">
+                                        <div class="flex items-center gap-2.5">
+                                            <div class="w-6 h-6 rounded-full bg-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold text-[10px]">4</div>
+                                            <span>إصدار الرخصة الرقمية والباركود الذكي</span>
+                                        </div>
+                                        <span class="text-[10px] text-emerald-400 font-sans font-medium">Issued PDF</span>
+                                    </div>
+                                </div>
+
+                                <!-- Live deployment launcher button inside visual card -->
+                                <div class="mt-5">
+                                    <a href="https://rokhsa-aqar.vercel.app/" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded-xl bg-primary hover:bg-primary-dark text-white font-semibold text-xs flex items-center justify-center gap-2 transition shadow-md">
+                                        <span>Open Live Site: rokhsa-aqar.vercel.app</span>
+                                        <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Expanded Architecture Breakdown (Collapsible / Modal) -->
+                <div id="rokhsa-arch-modal" class="hidden mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
+                    <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                        <i class="fas fa-sitemap text-primary"></i>
+                        <span>Detailed Architecture Breakdown: "رخصة عقار"</span>
+                    </h4>
+                    
+                    <div class="grid md:grid-cols-3 gap-4 text-xs">
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700">
+                            <h5 class="font-bold text-slate-800 dark:text-white mb-2 flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+                                Frontend Presentation (Next.js)
+                            </h5>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                Built with Next.js App Router, React Server Components for ultra-fast first-paint, Tailwind CSS for fluid responsive layout, and full Arabic RTL layout support. Integrates client-side validation and interactive permit tracking portals.
+                            </p>
+                        </div>
+                        
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700">
+                            <h5 class="font-bold text-slate-800 dark:text-white mb-2 flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-rose-500 inline-block"></span>
+                                Application &amp; Domain (Laravel + SOLID)
+                            </h5>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                Segregated into domain entities, repositories, and use-case service classes. Controllers contain zero business logic. Dependency Inversion ensures SMS providers, PDF generators, and notification buses can be swapped without touching core rules.
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700">
+                            <h5 class="font-bold text-slate-800 dark:text-white mb-2 flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-secondary inline-block"></span>
+                                Persistence &amp; Security Layer
+                            </h5>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                PostgreSQL ensures high relational integrity with transactional ACID rollbacks. Laravel Sanctum &amp; JWT manage token rotation and role authorization, while SMS OTP gateways verify high-privilege operations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Header for Upcoming Projects ("Coming Soon" / قريباً) -->
+            <div class="flex items-center justify-between mb-8 pb-3 border-b border-slate-200 dark:border-slate-800">
+                <div>
+                    <h3 class="text-2xl font-heading font-bold text-slate-900 dark:text-white">
+                        Upcoming &amp; Pipeline Projects
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+                        Architectural designs and systems currently in development and prototyping.
+                    </p>
+                </div>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-800 font-arabic">
+                    قريباً • Coming Soon
+                </span>
+            </div>
+
+            <!-- "Coming Soon" (قريباً) Projects Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                
+                <!-- Coming Soon Project 1: Smart Real Estate Valuation & MLS Platform -->
+                <div class="glow-card bg-white dark:bg-slate-800/90 rounded-2xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+                    <div>
+                        <!-- Header banner -->
+                        <div class="h-44 bg-gradient-to-br from-indigo-900 via-indigo-950 to-slate-900 relative flex items-center justify-center p-6 overflow-hidden">
+                            <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+                            <div class="text-center relative z-10">
+                                <div class="w-14 h-14 rounded-2xl bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 flex items-center justify-center mx-auto mb-2 text-2xl shadow-inner">
+                                    <i class="fas fa-building-circle-check"></i>
+                                </div>
+                                <span class="font-arabic text-white font-bold text-sm">منصة التقييم العقاري الذكي</span>
+                            </div>
+                            <!-- Status Pill -->
+                            <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[11px] font-bold font-arabic shimmer-badge text-amber-800 dark:text-amber-200 border border-amber-400/40">
+                                قريباً • Coming Soon
+                            </div>
+                            <div class="absolute bottom-2 left-3 text-[10px] text-slate-400 font-code">
+                                Real Estate MLS
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white mb-2">
+                                Smart Real Estate MLS &amp; Valuation
+                            </h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                                Intelligent valuation engine with comparative market analysis (CMA), geospatial zoning indexes, and automated appraisal reports.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-1.5 mb-5">
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">Next.js</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">Laravel API</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">PostgreSQL GIS</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">Clean Arch</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                        <span class="flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                            In Architecture Phase
+                        </span>
+                        <span class="font-arabic font-semibold text-primary dark:text-primary-light">قيد التطوير</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon Project 2: Multi-Tenant Enterprise ERP / CRM System -->
+                <div class="glow-card bg-white dark:bg-slate-800/90 rounded-2xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+                    <div>
+                        <!-- Header banner -->
+                        <div class="h-44 bg-gradient-to-br from-sky-900 via-slate-900 to-indigo-950 relative flex items-center justify-center p-6 overflow-hidden">
+                            <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+                            <div class="text-center relative z-10">
+                                <div class="w-14 h-14 rounded-2xl bg-sky-500/20 text-sky-400 border border-sky-500/30 flex items-center justify-center mx-auto mb-2 text-2xl shadow-inner">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <span class="font-arabic text-white font-bold text-sm">نظام إدارة المؤسسات المتكامل (ERP)</span>
+                            </div>
+                            <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[11px] font-bold font-arabic shimmer-badge text-amber-800 dark:text-amber-200 border border-amber-400/40">
+                                قريباً • Coming Soon
+                            </div>
+                            <div class="absolute bottom-2 left-3 text-[10px] text-slate-400 font-code">
+                                Multi-Tenant SaaS
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white mb-2">
+                                Multi-Tenant Cloud ERP &amp; Billing
+                            </h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                                Microservices architecture supporting tenant isolation, automated invoicing, warehouse inventory synchronization, and audit logging.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-1.5 mb-5">
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">Laravel 11</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">PostgreSQL</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">Docker</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">Redis</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                        <span class="flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                            Database Modeling Phase
+                        </span>
+                        <span class="font-arabic font-semibold text-secondary dark:text-secondary-light">قيد التخطيط</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon Project 3: Telehealth & Medical Appointment App -->
+                <div class="glow-card bg-white dark:bg-slate-800/90 rounded-2xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+                    <div>
+                        <!-- Header banner -->
+                        <div class="h-44 bg-gradient-to-br from-emerald-950 via-slate-900 to-teal-950 relative flex items-center justify-center p-6 overflow-hidden">
+                            <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+                            <div class="text-center relative z-10">
+                                <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto mb-2 text-2xl shadow-inner">
+                                    <i class="fas fa-heart-pulse"></i>
+                                </div>
+                                <span class="font-arabic text-white font-bold text-sm">تطبيق الرعاية الطبية وحجز المواعيد</span>
+                            </div>
+                            <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[11px] font-bold font-arabic shimmer-badge text-amber-800 dark:text-amber-200 border border-amber-400/40">
+                                قريباً • Coming Soon
+                            </div>
+                            <div class="absolute bottom-2 left-3 text-[10px] text-slate-400 font-code">
+                                Telehealth Mobile
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white mb-2">
+                                Telehealth &amp; Clinic Management
+                            </h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                                Cross-platform mobile healthcare app with doctor scheduling, encrypted electronic medical records (EMR), and instant notifications.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-1.5 mb-5">
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">Flutter</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">Dart</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">Laravel API</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">WebRTC</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                        <span class="flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                            UI/UX Prototyping
+                        </span>
+                        <span class="font-arabic font-semibold text-emerald-500">قيد التصميم</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon Project 4: Fleet & Logistics Tracking Platform -->
+                <div class="glow-card bg-white dark:bg-slate-800/90 rounded-2xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+                    <div>
+                        <!-- Header banner -->
+                        <div class="h-44 bg-gradient-to-br from-amber-950 via-slate-900 to-indigo-950 relative flex items-center justify-center p-6 overflow-hidden">
+                            <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+                            <div class="text-center relative z-10">
+                                <div class="w-14 h-14 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center mx-auto mb-2 text-2xl shadow-inner">
+                                    <i class="fas fa-truck-fast"></i>
+                                </div>
+                                <span class="font-arabic text-white font-bold text-sm">منصة التتبع اللوجستي وإدارة الأساطيل</span>
+                            </div>
+                            <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[11px] font-bold font-arabic shimmer-badge text-amber-800 dark:text-amber-200 border border-amber-400/40">
+                                قريباً • Coming Soon
+                            </div>
+                            <div class="absolute bottom-2 left-3 text-[10px] text-slate-400 font-code">
+                                Real-Time Tracking
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white mb-2">
+                                Fleet &amp; Smart Logistics Engine
+                            </h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                                High-throughput real-time telemetry streaming, geo-fencing route optimization, and driver performance telemetry dashboards.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-1.5 mb-5">
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">Node.js</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">WebSockets</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">PostgreSQL</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">Leaflet Maps</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                        <span class="flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                            Telemetry Protocol Design
+                        </span>
+                        <span class="font-arabic font-semibold text-amber-500">قيد التجهيز</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon Project 5: FinTech Digital Wallet & Payments Gateway -->
+                <div class="glow-card bg-white dark:bg-slate-800/90 rounded-2xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+                    <div>
+                        <!-- Header banner -->
+                        <div class="h-44 bg-gradient-to-br from-purple-950 via-slate-900 to-indigo-950 relative flex items-center justify-center p-6 overflow-hidden">
+                            <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+                            <div class="text-center relative z-10">
+                                <div class="w-14 h-14 rounded-2xl bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center mx-auto mb-2 text-2xl shadow-inner">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                                <span class="font-arabic text-white font-bold text-sm">المحفظة الرقمية وبوابة المدفوعات</span>
+                            </div>
+                            <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[11px] font-bold font-arabic shimmer-badge text-amber-800 dark:text-amber-200 border border-amber-400/40">
+                                قريباً • Coming Soon
+                            </div>
+                            <div class="absolute bottom-2 left-3 text-[10px] text-slate-400 font-code">
+                                FinTech Platform
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white mb-2">
+                                FinTech Digital Wallet &amp; Gateway
+                            </h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                                Double-entry ledger core, idempotent API endpoints, cryptographic payment validation, and multi-currency exchange.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-1.5 mb-5">
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">Clean Architecture</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">PostgreSQL</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">Sanctum JWT</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">Flutter</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                        <span class="flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                            Ledger Architecture Review
+                        </span>
+                        <span class="font-arabic font-semibold text-purple-500">قيد البحث</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon Project 6: AI-Powered Document Analysis Portal -->
+                <div class="glow-card bg-white dark:bg-slate-800/90 rounded-2xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between">
+                    <div>
+                        <!-- Header banner -->
+                        <div class="h-44 bg-gradient-to-br from-blue-950 via-slate-900 to-cyan-950 relative flex items-center justify-center p-6 overflow-hidden">
+                            <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+                            <div class="text-center relative z-10">
+                                <div class="w-14 h-14 rounded-2xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center mx-auto mb-2 text-2xl shadow-inner">
+                                    <i class="fas fa-file-contract"></i>
+                                </div>
+                                <span class="font-arabic text-white font-bold text-sm">بوابة التحليل الذكي للوثائق والعقود</span>
+                            </div>
+                            <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[11px] font-bold font-arabic shimmer-badge text-amber-800 dark:text-amber-200 border border-amber-400/40">
+                                قريباً • Coming Soon
+                            </div>
+                            <div class="absolute bottom-2 left-3 text-[10px] text-slate-400 font-code">
+                                AI Document Audit
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white mb-2">
+                                Smart Legal &amp; Permit Document OCR
+                            </h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                                Automated architectural blueprint OCR and deed verification engine designed to complement digital licensing platforms.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-1.5 mb-5">
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">Next.js</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">Python AI API</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">PostgreSQL</span>
+                                <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium">OCR Vision</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                        <span class="flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                            Algorithm Feasibility
+                        </span>
+                        <span class="font-arabic font-semibold text-cyan-500">قيد الدراسة</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience" class="py-20 reveal-on-scroll">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-14">
+                <span class="text-xs uppercase tracking-widest font-bold text-primary dark:text-primary-light">Career Journey</span>
+                <h2 class="text-3xl sm:text-4xl font-heading font-bold text-slate-900 dark:text-white mt-2">
+                    Professional Experience
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 mt-2 text-sm sm:text-base">
+                    Leading engineering teams, establishing clean architecture patterns, and shipping mission-critical products.
+                </p>
+                <div class="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div class="relative max-w-3xl mx-auto">
+                <!-- Timeline vertical line -->
+                <div class="absolute left-6 top-3 h-full w-0.5 bg-slate-200 dark:bg-slate-700"></div>
+                
+                <!-- Experience 1 -->
+                <div class="ml-14 mb-12 relative glow-card">
+                    <div class="absolute -left-14 mt-1.5 w-8 h-8 rounded-full border-4 border-white dark:border-slate-900 bg-primary flex items-center justify-center shadow">
+                        <i class="fas fa-briefcase text-white text-xs"></i>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-6 sm:p-7 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700">
+                        <div class="flex flex-wrap justify-between items-center gap-2 mb-3">
+                            <h3 class="text-xl font-bold font-heading text-slate-900 dark:text-white">Senior Software Engineer &amp; Architect</h3>
+                            <span class="px-3 py-1 bg-indigo-50 dark:bg-indigo-950/70 text-primary dark:text-primary-light border border-indigo-200 dark:border-indigo-800 rounded-full text-xs font-semibold">
+                                2023 - Present
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-semibold text-slate-600 dark:text-slate-400 mb-3">Enterprise Web &amp; Mobile Systems</h4>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                            Spearheaded the technical architecture of high-demand platforms including <strong>رخصة عقار (Rokhsa Aqar)</strong>. 
+                            Instituted Clean Architecture guidelines, automated OTP two-factor verification, and designed PostgreSQL schemas for high transaction volume.
+                        </p>
+                        <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-arrow-right text-primary text-[10px]"></i>
+                                <span>Established SOLID and Clean Architecture standards across Next.js and Laravel backends.</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-arrow-right text-primary text-[10px]"></i>
+                                <span>Reduced API latency by 35% through query optimization, indexing, and Redis caching.</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-arrow-right text-primary text-[10px]"></i>
+                                <span>Implemented secure JWT &amp; Sanctum authorization pipelines with granular RBAC scopes.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div class="ml-14 mb-12 relative glow-card">
+                    <div class="absolute -left-14 mt-1.5 w-8 h-8 rounded-full border-4 border-white dark:border-slate-900 bg-secondary flex items-center justify-center shadow">
+                        <i class="fas fa-code text-white text-xs"></i>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-6 sm:p-7 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700">
+                        <div class="flex flex-wrap justify-between items-center gap-2 mb-3">
+                            <h3 class="text-xl font-bold font-heading text-slate-900 dark:text-white">Full-Stack Developer</h3>
+                            <span class="px-3 py-1 bg-sky-50 dark:bg-sky-950/70 text-secondary dark:text-secondary-light border border-sky-200 dark:border-sky-800 rounded-full text-xs font-semibold">
+                                2021 - 2023
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-semibold text-slate-600 dark:text-slate-400 mb-3">Digital Solutions &amp; Platform Engineering</h4>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                            Developed end-to-end full-stack applications with Laravel, React, and Flutter. Built RESTful APIs, 
+                            integrated payment gateways, and crafted reactive user interfaces.
+                        </p>
+                        <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-arrow-right text-secondary text-[10px]"></i>
+                                <span>Engineered responsive client dashboards with state management and offline-first capabilities.</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-arrow-right text-secondary text-[10px]"></i>
+                                <span>Configured automated CI/CD deployment pipelines on Vercel and VPS cloud servers.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="ml-14 relative glow-card">
+                    <div class="absolute -left-14 mt-1.5 w-8 h-8 rounded-full border-4 border-white dark:border-slate-900 bg-emerald-500 flex items-center justify-center shadow">
+                        <i class="fas fa-mobile-screen text-white text-xs"></i>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-6 sm:p-7 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700">
+                        <div class="flex flex-wrap justify-between items-center gap-2 mb-3">
+                            <h3 class="text-xl font-bold font-heading text-slate-900 dark:text-white">Mobile &amp; Web Engineer</h3>
+                            <span class="px-3 py-1 bg-emerald-50 dark:bg-emerald-950/70 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 rounded-full text-xs font-semibold">
+                                2019 - 2021
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-semibold text-slate-600 dark:text-slate-400 mb-3">Application Development</h4>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                            Delivered responsive web interfaces and mobile applications using Flutter and native Android SDKs. 
+                            Applied MVVM patterns to keep UI components decoupled from backend HTTP services.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-50 dark:bg-slate-900/60 border-t border-slate-200 dark:border-slate-800 reveal-on-scroll">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-14">
+                <span class="text-xs uppercase tracking-widest font-bold text-primary dark:text-primary-light">Get In Touch</span>
+                <h2 class="text-3xl sm:text-4xl font-heading font-bold text-slate-900 dark:text-white mt-2">
+                    Let's Build Something Great Together
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 mt-2 text-sm sm:text-base">
+                    Have a project in mind, need architecture consulting, or looking for a Senior Software Engineer? Reach out directly.
+                </p>
+                <div class="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto grid lg:grid-cols-12 gap-8">
+                <!-- Contact Form -->
+                <div class="lg:col-span-7 bg-white dark:bg-slate-800 p-7 sm:p-8 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700">
+                    <h3 class="text-xl font-bold font-heading text-slate-900 dark:text-white mb-6">
+                        Send Me a Direct Message
+                    </h3>
+                    
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700/60 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition text-sm" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700/60 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition text-sm" required>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">Inquiry Type</label>
+                            <select id="subject" name="subject" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700/60 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition text-sm">
+                                <option value="featured-project">Discussion regarding "رخصة عقار" (Rokhsa Aqar)</option>
+                                <option value="architecture">Architecture Consulting &amp; Clean Code Review</option>
+                                <option value="job">Full-Stack / Senior Engineer Opportunity</option>
+                                <option value="freelance">Custom Web or Mobile Application</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="How can I help you architect your next application?" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700/60 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition text-sm" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-primary to-indigo-600 hover:from-primary-dark hover:to-primary text-white font-semibold text-sm shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition flex items-center justify-center gap-2">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane text-xs"></i>
+                        </button>
+                    </form>
+                    
+                    <div id="form-status" class="mt-4 p-3 rounded-xl text-center text-xs font-medium hidden"></div>
+                </div>
+                
+                <!-- Contact Details Sidebar -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="bg-white dark:bg-slate-800 p-6 sm:p-7 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 space-y-4">
+                        <h4 class="font-bold font-heading text-lg text-slate-900 dark:text-white mb-2">
+                            Direct Contact Information
+                        </h4>
+                        
+                        <div class="flex items-center gap-3 text-sm">
+                            <div class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950 flex items-center justify-center text-primary dark:text-primary-light shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="text-xs text-slate-400">Email</p>
+                                <a href="mailto:jamalsareea@gmail.com" class="font-semibold text-slate-900 dark:text-white hover:text-primary transition truncate block">
+                                    jamalsareea@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 text-sm">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Phone / WhatsApp</p>
+                                <a href="tel:+967774715669" class="font-semibold text-slate-900 dark:text-white hover:text-emerald-500 transition">
+                                    +967 774715669
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 text-sm">
+                            <div class="w-10 h-10 rounded-xl bg-sky-100 dark:bg-sky-950 flex items-center justify-center text-secondary dark:text-secondary-light shrink-0">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Location</p>
+                                <p class="font-semibold text-slate-900 dark:text-white">Sana'a, Yemen</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Presence -->
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700">
+                        <h4 class="font-bold font-heading text-sm text-slate-900 dark:text-white mb-3">
+                            Connect Across Platforms
+                        </h4>
+                        <div class="grid grid-cols-3 gap-2">
+                            <a href="https://github.com/jamal-sareea25" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-700/60 hover:bg-slate-900 hover:text-white dark:hover:bg-slate-600 transition text-center text-xs font-semibold flex flex-col items-center gap-1">
+                                <i class="fab fa-github text-base"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/jamal-sareea-0b3b62261" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-700/60 hover:bg-primary hover:text-white dark:hover:bg-primary transition text-center text-xs font-semibold flex flex-col items-center gap-1">
+                                <i class="fab fa-linkedin text-base"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://www.instagram.com/jam_sa1" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-700/60 hover:bg-pink-600 hover:text-white dark:hover:bg-pink-600 transition text-center text-xs font-semibold flex flex-col items-center gap-1">
+                                <i class="fab fa-instagram text-base"></i>
+                                <span>Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick consultation callout -->
+                    <div class="bg-gradient-to-r from-primary to-indigo-700 rounded-2xl p-6 text-white shadow-lg space-y-2">
+                        <h4 class="font-bold font-heading text-base flex items-center gap-2">
+                            <i class="fas fa-lightbulb"></i>
+                            Architecture Advisory
+                        </h4>
+                        <p class="text-xs text-indigo-100 leading-relaxed">
+                            Need help choosing between Clean Architecture, Modular Monoliths, or Microservices? Let's design a solid foundation for your platform.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white py-12 border-t border-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3 text-center md:text-left">
+                    <div class="h-10 w-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white font-bold shadow-md">
+                        <span class="font-code text-base font-semibold">{}</span>
+                    </div>
+                    <div>
+                        <span class="text-xl font-heading font-extrabold tracking-tight">
+                            Jamal<span class="text-primary-light">.dev</span>
+                        </span>
+                        <p class="text-xs text-slate-400">Architecture-Driven Full-Stack &amp; Mobile Engineering</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-6 text-xs text-slate-400">
+                    <a href="#about" class="hover:text-white transition">About</a>
+                    <a href="#skills" class="hover:text-white transition">Skills</a>
+                    <a href="#architecture" class="hover:text-white transition">Architecture</a>
+                    <a href="#projects" class="hover:text-white transition">Projects</a>
+                    <a href="https://rokhsa-aqar.vercel.app/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition font-arabic">رخصة عقار</a>
+                    <a href="#contact" class="hover:text-white transition">Contact</a>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-xs text-slate-500">
+                        &copy; 2026 Jamal Sareea. All rights reserved.
+                    </p>
+                    <p class="text-[11px] text-slate-600 mt-0.5">
+                        Hosted on GitHub Pages • Production Certified
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Scroll back to top" class="fixed bottom-6 right-6 p-3 rounded-xl bg-primary text-white shadow-lg hover:bg-primary-dark transition-all duration-300 opacity-0 pointer-events-none translate-y-4 z-40 focus:outline-none">
+        <i class="fas fa-arrow-up text-sm"></i>
+    </button>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Theme Toggle with LocalStorage & OS Preference
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        
+        function initTheme() {
+            const savedTheme = localStorage.getItem('jamal_portfolio_theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+        
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('jamal_portfolio_theme', isDark ? 'dark' : 'light');
+        }
+
+        initTheme();
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when clicking any nav link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // Scroll Reveal Animations using IntersectionObserver
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.12,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        });
+
+        // Back to Top Button Logic
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                backToTopBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            }
+        });
+
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Contact Form Handling (Client-Side Feedback)
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        if (contactForm && formStatus) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                formStatus.className = 'mt-4 p-3 rounded-xl text-center text-xs font-semibold bg-indigo-50 dark:bg-indigo-950 text-primary dark:text-primary-light border border-indigo-200 dark:border-indigo-800';
+                formStatus.textContent = 'Processing your inquiry...';
+                formStatus.classList.remove('hidden');
+
+                setTimeout(() => {
+                    formStatus.className = 'mt-4 p-3 rounded-xl text-center text-xs font-semibold bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800';
+                    formStatus.innerHTML = '<i class="fas fa-check-circle mr-1.5"></i> Thank you! Your message has been received. I will reply to you shortly.';
+                    contactForm.reset();
+                }, 1000);
+            });
+        }
+    </script>
+</body>
+</html>
